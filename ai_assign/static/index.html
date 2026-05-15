@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Agent</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+    
+    <nav class="navbar glass-panel">
+        <div class="nav-content">
+            <h1 class="logo">✨ <span class="gradient-text">Newsletter Agent</span></h1>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="generator-section">
+            <div class="glass-panel main-card">
+                <h2>Generate New Edition</h2>
+                <p class="subtitle">Provide a goal and let the autonomous AI build a professional newsletter.</p>
+                
+                <form id="generate-form">
+                    <div class="input-group">
+                        <input type="text" id="goal-input" required placeholder="e.g. Create a newsletter on the latest AI agent frameworks...">
+                        <button type="submit" id="generate-btn" class="btn-primary">
+                            <span class="btn-text">Generate Newsletter</span>
+                            <div class="spinner hidden"></div>
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="status-container" class="status-box hidden">
+                    <div class="status-indicator">
+                        <div class="pulse-ring"></div>
+                        <span>Agent is working... (this may take a minute)</span>
+                    </div>
+                    <ul class="status-steps">
+                        <li class="active">Planning Goal</li>
+                        <li class="active">Researching Web</li>
+                        <li class="active">Summarising Content</li>
+                        <li class="active">Critiquing & Refining</li>
+                        <li class="active">Generating HTML</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-view hidden" id="results-view">
+            <section class="result-section glass-panel">
+                <div class="section-header">
+                    <h2>Generated Newsletter</h2>
+                    <button class="btn-secondary" id="preview-toggle">View HTML Raw</button>
+                </div>
+                <div class="iframe-container">
+                    <iframe id="newsletter-preview" class="glass-iframe"></iframe>
+                </div>
+            </section>
+        </div>
+
+        <section class="archive-section glass-panel mt-2">
+            <h2>🧠 Memory Archive</h2>
+            <p class="subtitle">Articles the agent has already covered.</p>
+            <div class="archive-grid" id="archive-grid">
+                <!-- Archive items populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

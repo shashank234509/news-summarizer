@@ -76,13 +76,17 @@ pip install -r requirements.txt
 # 2. Make sure Ollama is running with Mistral
 ollama pull mistral
 
-# 3. Run in fully autonomous mode
+# 3. Start the Web UI (Recommended)
+uvicorn app:app --port 8000
+# Then open http://localhost:8000 in your browser
+
+# 4. Or run via CLI in autonomous mode
 python agent.py --mode auto
 
-# 4. Or run in human-in-the-loop mode
+# 5. Or run via CLI in human-in-the-loop mode
 python agent.py --mode hitl
 
-# 5. Custom goal
+# 6. Custom CLI goal
 python agent.py --goal "Create a newsletter about LLM breakthroughs"
 ```
 
@@ -105,6 +109,8 @@ After running, check the generated files:
 ## Project Structure
 
 ```
+├── app.py            # FastAPI Web Server
+├── static/           # Web UI Frontend (HTML, CSS, JS)
 ├── agent.py          # Core agent pipeline (5 phases)
 ├── tools.py          # Tool implementations (search, summarise, HTML, email)
 ├── memory.py         # Persistent memory & duplicate detection
@@ -113,5 +119,3 @@ After running, check the generated files:
 ├── output/           # Generated newsletters + simulated email
 └── memory/           # Persistent news archive (auto-created)
 ```
-
-
